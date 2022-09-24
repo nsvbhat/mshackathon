@@ -1,0 +1,105 @@
+{
+    "@id": "dtmi:demo:adtga:shipment;1",
+    "@context": "dtmi:dtdl:context;2",
+    "@type": "Interface",
+    "displayName": "Shipment",
+    "contents": [
+     {
+      "@type": "Property",
+      "name": "ShipmentType",
+      "schema": {
+       "@type": "Object",
+       "fields": [
+        {
+         "name": "Air",
+         "schema": "integer"
+        },
+        {
+         "name": "Truck",
+         "schema": "integer"
+        },
+        {
+         "name": "Ship",
+         "schema": "integer"
+        }
+       ]
+      }
+     },
+     {
+      "@type": "Property",
+      "name": "CurrentLocation",
+      "schema": "string"
+     },
+     {
+      "@type": "Property",
+      "name": "OnTrack",
+      "schema": "integer"
+     },
+     {
+      "@type": "Property",
+      "name": "EstimatedTimeOfArrival",
+      "schema": "dateTime",
+      "writable": true
+     },
+     {
+      "@type": "Property",
+      "name": "NewTimeOfArrival",
+      "schema": "dateTime",
+      "writable": true
+     },
+     {
+      "@type": "Property",
+      "name": "DelayDetails",
+      "schema": {
+       "@type": "Object",
+       "fields": [
+        {
+         "name": "DelayInDays",
+         "schema": "integer"
+        },
+        {
+         "name": "IssueType",
+         "schema": {
+          "@type": "Object",
+          "fields": [
+           {
+            "name": "Weather",
+            "schema": "integer"
+           },
+           {
+            "name": "Customs",
+            "schema": "integer"
+           },
+           {
+            "name": "Traffic",
+            "schema": "integer"
+           },
+           {
+            "name": "Breakdown",
+            "schema": "integer"
+           }
+          ]
+         }
+        }
+       ]
+      }
+     },
+     {
+      "@type": "Property",
+      "name": "FromLocation",
+      "schema": "string",
+      "writable": true
+     },
+     {
+      "@type": "Property",
+      "name": "ToLocation",
+      "schema": "string",
+      "writable": true
+     },
+     {
+      "@type": "Relationship",
+      "name": "deliversOrderToPlant",
+      "target": "dtmi:demo:adtga:plant;1"
+     }
+    ]
+   }

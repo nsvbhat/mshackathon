@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Alternatives</title>
+  <meta property="og:title" content="alternatives" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+  <script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginRight = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginRight = "0";
+    }
+  </script>
+  <!-- <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK8rAh4-8vlkINmIWf2njGuRKkseHajws"
+  defer
+></script> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="./update.js"></script>
+
+  <style>
+    #mySidenav a {
+      top: 100px;
+      position: absolute;
+      right: -100px;
+      transition: 0.3s;
+      padding: 15px;
+      width: 140px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    #mySidenav a:hover {
+      right: 0;
+    }
+
+    #about {
+      top: 20px;
+      background-color: #04AA6D;
+    }
+
+    /* The sidebar menu */
+    .sidebar {
+      height: 100%;
+      /* 100% Full-height */
+      width: 0;
+      /* 0 width - change this with JavaScript */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Stay on top */
+      top: 0;
+      right: 0;
+      background-color: #111;
+      /* Black*/
+      overflow-x: hidden;
+      /* Disable horizontal scroll */
+      padding-top: 60px;
+      /* Place content 60px from the top */
+      transition: 0.5s;
+      /* 0.5 second transition effect to slide in the sidebar */
+    }
+
+    /* The sidebar links */
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    /* The button used to open the sidebar */
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: dodgerblue;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: dodgerblue;
+    }
+
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    #main {
+      transition: margin-left .5s;
+      /* If you want a transition effect */
+      padding: 20px;
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      background-color: grey;
+    }
+  </style>
+
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Poppins;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.55;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+
+    #loader {
+      /* Loader Div Class */
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: url('./assets/loader.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 10000000;
+      filter: alpha(opacity=40);
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body onload="getAlternativeFactories()">
+  <div>
+
+
+    <link href="./css/alternatives.css" rel="stylesheet" />
+
+    <div class="header">
+      <a href="./index.html" class="logo"><img alt="logo" style="height:50px; width:100%" src="./assets/logo.png"
+          class="header-image" /></a>
+      <div class="header-right">
+        <!-- <div id="mySidebar" class="sidebar" style="background:white">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="" target="popup"
+          onclick="window.open('https://explorer.digitaltwins.azure.net/?tid=2e3e7b44-8e2d-4c0a-9d26-695f083df548&eid=supplychaindt.api.wcus.digitaltwins.azure.net','popup'); return false;">
+          <button class="btn" type="button">Launch 3D Scene</button></a>
+        <a><button class="btn" type="button" onclick="updateState('current')">Current State</button></a>
+        <a> <button class="btn" type="button" onclick="updateState('preferred')">Preferred State</button></a>
+        </div> -->
+
+        <!-- <div id="main">
+          <button class="openbtn" onclick="openNav()">&#9776;</button>
+        </div> -->
+        <!-- <a class="btnlike" href="index.html">Landing Page</a> -->
+        <!-- <a href="../landing.html"><button class="btn" type="button">Landing Page</button></a> -->
+        <a href="" target="popup"
+          onclick="window.open('https://explorer.digitaltwins.azure.net/?tid=2e3e7b44-8e2d-4c0a-9d26-695f083df548&eid=supplychaindt.api.wcus.digitaltwins.azure.net','popup'); return false;">
+          <button class="btn" type="button">Launch 3D Scene</button></a>
+        <a><button class="btn" type="button" onclick="updateState('current')">Current State</button></a>
+        <a> <button class="btn" type="button" onclick="updateState('preferred')">Preferred State</button></a>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="dashview.html" target="popup" 
+          onclick="window.open('dashview.html','popup','width=+screen.availWidth+ ,height=+screen.availHeight'); return false;" id="about">Dashboard</a>
+        </div>
+
+        <!-- <button  class="btn" type="button" onclick="updateState('current')">Current State</button>
+              <button  class="btn" type="button" onclick="updateState('preferred')">Preferred State</button> -->
+        <!-- <a href="#about">About</a> -->
+      </div>
+    </div>
+    <div class="alternatives-container">
+      <div id="loader" style="display:block"></div>
+
+      <!-- <div style="display: flex;align-items: center;margin-bottom: 30px;"> -->
+      <div style="display:flex; margin-right:25px;">
+        <button class="btn" style="margin-right:10px;" type="button" onclick="window.location.href='sc.html'">My Supply
+          Chain</button>
+        <button class="btn" style="margin-right:10px;background:grey" type="button"
+          onclick="window.location.href ='factory.html'">Plant Management</button>
+        <button class="btn" style="background:grey" type="button"
+          onclick="window.location.href='supplier.html'">Suppliers Listing</button>
+      </div>
+      <br>
+
+      <!-- <h3 style="margin-top: 10px;">Alternatives</h3> -->
+      <!-- </div> -->
+      <!-- <button class="btn" style="margin-right: -340px;margin-top: -75px;" type="button"
+        onclick="window.location.href='sc.html'">Map View</button>
+      <br> -->
+      <h2 id="warehouseHeader"></h2>
+      <div id="AlternateWareHouse" style="width:90%"></div>
+
+      <h2 id="factoryHeader" style="margin-top:20px"></h2>
+      <div id="AlternateFactory" style="width:90%;"></div>
+
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+</body>
+
+</html>

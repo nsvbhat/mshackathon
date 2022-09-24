@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Supply Chain</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="text/javascript" src="./update.js"></script>
+
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      /* margin: 0; */
+      padding: 0;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Poppins;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.55;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+<body style="width:100%; ">
+
+  <div>
+    <link href="./css/landing-page.css" rel="stylesheet" />
+    <div class="landing-page-container">
+      <div class="header">
+        <a href="./index.html" class="logo"><img alt="logo" style="height:50px; width:100%"
+            src="./assets/logo.png"
+            class="header-image" /></a>
+        <div class="header-right">
+          <!-- <a href="../landing.html"><button class="btn" type="button">Landing Page</button></a> -->
+          <a href="" target="popup"
+            onclick="window.open('https://explorer.digitaltwins.azure.net/?tid=2e3e7b44-8e2d-4c0a-9d26-695f083df548&eid=supplychaindt.api.wcus.digitaltwins.azure.net','popup'); return false;">
+            <button class="btn" type="button">Launch 3D Scene</button></a>
+          <a><button class="btn" type="button" onclick="updateState('current')">Current State</button></a>
+          <a> <button class="btn" type="button" onclick="updateState('preferred')">Preferred State</button></a>
+        </div>
+      </div>
+      <div class="landing-page-top-container">
+        <img style="height:300px; width:90%"
+          src="./assets/sc.jpg">
+      </div>
+      <div id="main-section" class="landing-page-main">
+        <h1>Supply Chain</h1>
+        <div class="landing-page-cards-container">
+          <div class="place-card-container">
+            <img
+              src="./assets/plant.jpg"
+              alt="image" class="place-card-image" />
+            <div class="place-card-container1">
+              <span class="place-card-text"><span>Plants</span></span>
+              <span class="place-card-text1">
+                <span>Plant level statistics</span>
+              </span>
+              <div class="outline-button-container" onclick="window.location.href='factory.html'">
+                <button class="outline-button-button button">
+                  <span>Let's Go</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="place-card-container">
+            <img
+              src="./assets/supplychain.jpg"
+              alt="image" class="place-card-image" />
+            <div class="place-card-container1">
+              <span class="place-card-text"><span>Supply Chain</span></span>
+              <span class="place-card-text1">
+                <span>Supply chain  statistics</span>
+              </span>
+              <div class="outline-button-container" onclick="window.location.href='sc.html'">
+                <button class="outline-button-button button">
+                  <span>Let's Go</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="place-card-container">
+            <img
+              src="./assets/suppliers.jpg"
+              alt="image" class="place-card-image" />
+            <div class="place-card-container1">
+              <span class="place-card-text"><span>Suppliers</span></span>
+              <span class="place-card-text1">
+                <span>Supplier level statistics</span>
+              </span>
+              <div class="outline-button-container" onclick="window.location.href='supplier.html'">
+                <button class="outline-button-button button">
+                  <span>Let's Go</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+</body>
+
+</html>

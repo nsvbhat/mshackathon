@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Suppliers Listinging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <style data-tag="reset-style-sheet">
+    html {
+      line-height: 1.15;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+    }
+
+    p,
+    li,
+    ul,
+    pre,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    button:-moz-focus,
+    [type="button"]:-moz-focus,
+    [type="reset"]:-moz-focus,
+    [type="submit"]:-moz-focus {
+      outline: 1px dotted ButtonText;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    input {
+      padding: 2px 4px;
+    }
+
+    img {
+      display: block;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <style data-tag="default-style-sheet">
+    html {
+      font-family: Poppins;
+      font-size: 16px;
+    }
+
+    body {
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: none;
+      letter-spacing: normal;
+      line-height: 1.55;
+      color: var(--dl-color-gray-black);
+      background-color: var(--dl-color-gray-white);
+
+    }
+
+    #loader {
+      /* Loader Div Class */
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: url('./assets/loader.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 10000000;
+      filter: alpha(opacity=40);
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    data-tag="font" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./update.js"></script>
+
+</head>
+
+<body onload="getWarehouses()">
+
+  <div id="contentview">
+    <link href="./css/company.css" rel="stylesheet" />
+    <div class="company-container">
+      <div id="loader" style="display:block"></div>
+      <div class="header">
+        <a href="./index.html" class="logo"><img alt="logo" style="height:50px; width:100%" src="./assets/logo.png"
+            class="header-image" /></a>
+        <div class="header-right">
+          <!-- <a class="btnlike" href="index.html">Landing Page</a> -->
+          <a href="" target="popup"
+            onclick="window.open('https://explorer.digitaltwins.azure.net/?tid=2e3e7b44-8e2d-4c0a-9d26-695f083df548&eid=supplychaindt.api.wcus.digitaltwins.azure.net','popup'); return false;">
+            <button class="btn" type="button">Launch 3D Scene</button></a>
+          <a><button class="btn" type="button" onclick="updateState('current')">Current State</button></a>
+          <a> <button class="btn" type="button" onclick="updateState('preferred')">Preferred State</button></a>
+
+          <!-- <button  class="btn" type="button" onclick="updateState('current')">Current State</button>
+          <button  class="btn" type="button" onclick="updateState('preferred')">Preferred State</button> -->
+          <!-- <a href="#about">About</a> -->
+        </div>
+      </div>
+      
+      <div id="main-section" class="company-main">
+        <div style="display:flex; margin-right:25px;">
+          <button  class="btn" style="margin-right:10px;background:grey" type="button" onclick="window.location.href='sc.html'">My Supply Chain</button>
+          <button  class="btn" style="margin-right:10px;background:grey" type="button" onclick="window.location.href ='factory.html'">Plant Management</button>
+          <button  class="btn" style="" type="button" onclick="window.location.href='supplier.html'">Supplier Listing</button></div>
+
+        <h3>Suppliers</h3>
+        <div id="blankspace" class="company-cards-container" style="max-width:1300px!important"></div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+</body>
+
+</html>

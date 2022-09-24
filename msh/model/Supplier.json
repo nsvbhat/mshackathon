@@ -1,0 +1,151 @@
+{
+  "@id": "dtmi:demo:adtga:supplier;1",
+  "@context": "dtmi:dtdl:context;2",
+  "@type": "Interface",
+  "displayName": "Supplier",
+  "contents": [
+   {
+    "@type": "Property",
+    "name": "Margin",
+    "schema": "integer"
+   },
+   {
+    "@type": "Property",
+    "name": "License",
+    "schema": "string"
+   },
+   {
+    "@type": "Property",
+    "name": "ESGRating",
+    "schema": "string"
+   },
+   {
+    "@type": "Property",
+    "name": "Name",
+    "schema": "string"
+   },
+   {
+    "@type": "Property",
+    "name": "Reliability",
+    "schema": "integer"
+   },
+   {
+    "@type": "Property",
+    "name": "Trust",
+    "schema": "integer"
+   },
+   {
+    "@type": "Property",
+    "name": "Efficiency",
+    "schema": "integer"
+   },
+   {
+    "@type": "Property",
+    "name": "InventoryType",
+    "schema": {
+     "@type": "Object",
+     "fields": [
+      {
+       "name": "Chemical",
+       "schema": "integer"
+      },
+      {
+       "name": "CarbonBlack",
+       "schema": "integer"
+      },
+      {
+       "name": "Rubber",
+       "schema": "integer"
+      },
+      {
+       "name": "Fabric",
+       "schema": "integer"
+      }
+     ]
+    }
+   },
+   {
+    "@type": "Property",
+    "name": "Location",
+    "schema": {
+     "@type": "Object",
+     "fields": [
+      {
+       "name": "Coordinates",
+       "schema": "string"
+      },
+      {
+       "name": "Address",
+       "schema": "string"
+      }
+     ]
+    },
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "Compliance",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "Defectrates",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "Innovation",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "ROI",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "risk",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "customerservice",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "OpenOrders",
+    "schema": "integer",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "LeadTime",
+    "schema": "integer",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "OtherInfo",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Property",
+    "name": "ProductList",
+    "schema": "string",
+    "writable": true
+   },
+   {
+    "@type": "Relationship",
+    "name": "deliversOrdersToShipment",
+    "target": "dtmi:demo:adtga:shipment;1"
+   }
+  ]
+ } 

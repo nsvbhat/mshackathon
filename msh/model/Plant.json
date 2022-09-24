@@ -1,0 +1,236 @@
+{
+    "@id": "dtmi:demo:adtga:plant;1",
+    "@context": "dtmi:dtdl:context;2",
+    "@type": "Interface",
+    "displayName": "Plants",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "License",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "OtherInfo",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "OrderDetails",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "OpenOrders",
+              "schema": "integer"
+            },
+            {
+              "name": "OrdersFor",
+              "schema": {
+                "@type": "Object",
+                "fields": [
+                  {
+                    "name": "CurrentYear",
+                    "schema": {
+                      "@type": "Object",
+                      "fields": [
+                        {
+                          "name": "Year",
+                          "schema": "integer"
+                        },
+                        {
+                          "name": "Q1Q2",
+                          "schema": "boolean"
+                        },
+                        {
+                          "name": "Q3Q4",
+                          "schema": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "UpcomingYear",
+                    "schema": {
+                      "@type": "Object",
+                      "fields": [
+                        {
+                          "name": "Year",
+                          "schema": "integer"
+                        },
+                        {
+                          "name": "Q1Q2",
+                          "schema": "boolean"
+                        },
+                        {
+                          "name": "Q3Q4",
+                          "schema": "boolean"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "ShipTo",
+              "schema": "string"
+            },
+            {
+              "name": "ItemCategory",
+              "schema": "string"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Property",
+        "name": "Availability",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "CurrentYear",
+              "schema": {
+                "@type": "Object",
+                "fields": [
+                  {
+                    "name": "Year",
+                    "schema": "integer"
+                  },
+                  {
+                    "name": "Q1Q2",
+                    "schema": "boolean"
+                  },
+                  {
+                    "name": "Q3Q4",
+                    "schema": "boolean"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "UpcomingYear",
+              "schema": {
+                "@type": "Object",
+                "fields": [
+                  {
+                    "name": "Year",
+                    "schema": "integer"
+                  },
+                  {
+                    "name": "Q1Q2",
+                    "schema": "boolean"
+                  },
+                  {
+                    "name": "Q3Q4",
+                    "schema": "boolean"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Property",
+        "name": "ProductList",
+        "schema": "string",
+        "writable": true
+       },
+      {
+        "@type": "Property",
+        "name": "LeadTime",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "FixedCosts",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "VariableCosts",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "UtilityCosts",
+              "schema": "integer"
+            },
+            {
+              "name": "RawMaterialCosts",
+              "schema": "integer"
+            },
+            {
+              "name": "LaborCosts",
+              "schema": "integer"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Property",
+        "name": "CostToServe",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "Reliability",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "Trust",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "TotalInventoryCost",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "Location",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Coordinates",
+              "schema": "string"
+            },
+            {
+              "name": "Address",
+              "schema": "string"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Property",
+        "name": "QualityComplianceLevel",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "ManufacturingCapacity",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "ActualOutput",
+        "schema": "integer"
+      },
+      {
+        "@type": "Property",
+        "name": "DaysOfRawMaterialsLeft",
+        "schema": "integer"
+      },
+      {
+        "@type": "Relationship",
+        "name": "deliversOrdersToShipment",
+        "target": "dtmi:demo:adtga:shipment;1"
+      }
+    ]
+  }
+  
